@@ -48,9 +48,8 @@ public class SensorDetailActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAccuracyChanged(Sensor sensor, int i)
-            {
-                Toast.makeText(getBaseContext(), "Accuracy changed", Toast.LENGTH_SHORT).show();
+            public void onAccuracyChanged(Sensor sensor, int i) {
+
             }
         };
         sm.registerListener(listener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
@@ -71,10 +70,7 @@ public class SensorDetailActivity extends AppCompatActivity {
                 manager.registerListener(listener, sensor, SensorManager.SENSOR_DELAY_FASTEST);
                 break;
         }
-
-
-
-
-        sensor.getResolution();
     }
+
+    
 }

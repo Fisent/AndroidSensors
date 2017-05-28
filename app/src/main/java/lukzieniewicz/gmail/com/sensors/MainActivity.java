@@ -10,11 +10,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private List<Sensor> sensors;
+    private List<String> strings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize(){
+        setStrings();
         ListView lv = (ListView) findViewById(R.id.list_view);
-        lv.setAdapter(new ArrayAdapter<Sensor>(this, android.R.layout.simple_list_item_1, sensors));
+        lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strings));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -38,5 +41,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void setStrings(){
+        strings = new LinkedList<String>();
+        for(Sensor s : sensors){
+            strings.add(s.getStringType());
+        }
     }
 }

@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SensorDetailActivity"></activity>
+        <activity android:name=".SensorDetailActivity" />
+        <activity android:name=".Compass"></activity>
     </application>
 
 </manifest>
