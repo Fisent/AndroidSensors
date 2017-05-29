@@ -50,8 +50,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void odCompassClick(View view){
+    public void onCompassClick(View view){
         Intent i = new Intent(this, Compass.class);
+        startActivity(i);
+    }
+
+    public void onGameClick(View view){
+        Intent i = new Intent(this, WorkoutActivity.class);
         startActivity(i);
     }
 }
