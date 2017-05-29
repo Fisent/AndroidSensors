@@ -49,4 +49,9 @@ public class MainActivity extends AppCompatActivity {
             strings.add(s.getStringType());
         }
     }
+
+    public void odCompassClick(View view){
+        Intent i = new Intent(this, Compass.class);
+        startActivity(i);
+    }
 }
