@@ -22,7 +22,7 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
         setContentView(R.layout.activity_workout);
 
         manager = (SensorManager)getSystemService(SENSOR_SERVICE);
-        sensor = manager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        sensor = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     @Override
@@ -40,7 +40,10 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
     {
-        counter++;
+        if(sensorEvent.values[0] > 10) {
+            counter ++;
+        }
+
         updateUI();
     }
 

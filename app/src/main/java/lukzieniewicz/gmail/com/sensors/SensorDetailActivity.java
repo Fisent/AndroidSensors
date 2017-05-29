@@ -72,5 +72,5 @@ public class SensorDetailActivity extends AppCompatActivity {
         }
     }
 
-    
+
 }
