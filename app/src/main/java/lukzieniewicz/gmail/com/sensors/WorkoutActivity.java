@@ -14,6 +14,7 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
     private Sensor sensor;
     private SensorManager manager;
     private int counter = 0;
+    private int skipFrames = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,8 +41,14 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
     {
-        if(sensorEvent.values[0] > 10) {
+        ((TextView) findViewById(R.id.debug_text_view)).setText(skipFrames + "");
+        if(skipFrames > 0){
+            skipFrames--;
+        }
+
+        if(skipFrames <= 0 && sensorEvent.values[0] > 10) {
             counter ++;
+            skipFrames = 2;
         }
 
         updateUI();

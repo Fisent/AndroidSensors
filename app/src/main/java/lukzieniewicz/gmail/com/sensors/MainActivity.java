@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         SensorManager s =(SensorManager) getSystemService(SENSOR_SERVICE);
         sensors = s.getSensorList(Sensor.TYPE_ALL);
 
+        if(((SensorManager) getSystemService(SENSOR_SERVICE)).getDefaultSensor(Sensor.TYPE_ORIENTATION) == null){
+            findViewById(R.id.button).setEnabled(false);
+        }
+
         initialize();
     }
 
